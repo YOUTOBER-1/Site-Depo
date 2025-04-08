@@ -96,5 +96,32 @@
 
         init();
     </script>
+
+
+
+
+
+
+
+
+    using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlaceBlock : MonoBehaviour
+{
+    public GameObject blockPrefab;
+    public Camera playerCamera;
+    public float placeDistance = 5f;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 placePosition = playerCamera.transform.position + playerCamera.transform.forward * placeDistance;
+            Instantiate(blockPrefab, placePosition, Quaternion.identity);
+        }
+    }
+}
 </body>
 </html>
